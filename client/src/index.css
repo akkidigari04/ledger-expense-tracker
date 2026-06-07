@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-cream font-body text-ink min-h-screen;
+  }
+
+  h1, h2, h3 { @apply font-display; }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-sand shadow-sm;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-body font-medium
+           text-sm transition-all duration-150 active:scale-95 focus:outline-none
+           focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-cream hover:bg-ink/80 focus-visible:ring-ink;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-ink hover:bg-sand/50 focus-visible:ring-ink/30;
+  }
+
+  .btn-danger {
+    @apply btn bg-clay/10 text-clay hover:bg-clay/20 focus-visible:ring-clay;
+  }
+
+  .btn-sage {
+    @apply btn bg-sage text-cream hover:bg-sage-dark focus-visible:ring-sage;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 rounded-xl border border-sand bg-white text-ink text-sm
+           placeholder:text-ink/30 transition-colors duration-150
+           focus:outline-none focus:ring-2 focus:ring-sage/40 focus:border-sage
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-error {
+    @apply border-clay focus:ring-clay/40 focus:border-clay;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-ink/60 mb-1 uppercase tracking-wide;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-sand rounded-lg;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-sand-dark rounded-full; }
+}
+
+/* Category colour dots */
+.cat-food          { @apply bg-amber-400; }
+.cat-transport     { @apply bg-blue-400; }
+.cat-bills         { @apply bg-purple-400; }
+.cat-entertainment { @apply bg-pink-400; }
+.cat-other         { @apply bg-slate-400; }
